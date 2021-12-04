@@ -12,9 +12,9 @@ export default function Index({ allPosts }) {
   const morePosts = allPosts.slice(1)
   return (
     <>
-      <Layout>
+      <Layout >
         <Head>
-          <title>Next.js Blog Example with {CMS_NAME}</title>
+          <title>Quiet Little Corner</title>
         </Head>
         <Container>
           <Intro />

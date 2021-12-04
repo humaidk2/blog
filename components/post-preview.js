@@ -2,6 +2,7 @@ import Avatar from '../components/avatar'
 import DateFormatter from '../components/date-formatter'
 import CoverImage from './cover-image'
 import Link from 'next/link'
+import { useEffect  } from 'react'
 
 export default function PostPreview({
   title,
@@ -11,6 +12,9 @@ export default function PostPreview({
   author,
   slug,
 }) {
+  useEffect(()=>{
+    localStorage.theme = 'dark'
+  },[])
   return (
     <div>
       <div className="mb-5">

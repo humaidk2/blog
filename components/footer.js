@@ -1,29 +1,22 @@
 import Container from './container'
 import { EXAMPLE_PATH } from '../lib/constants'
+import { faAngellist, faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons'
+import { faEnvelope} from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export default function Footer() {
   return (
-    <footer className="bg-accent-1 border-t border-accent-2">
+    <footer className="bg-accent-1 border-t border-accent-2 dark:bg-gray-800 dark:text-white">
       <Container>
-        <div className="py-28 flex flex-col lg:flex-row items-center">
-          <h3 className="text-4xl lg:text-5xl font-bold tracking-tighter leading-tight text-center lg:text-left mb-10 lg:mb-0 lg:pr-4 lg:w-1/2">
-            Statically Generated with Next.js.
-          </h3>
-          <div className="flex flex-col lg:flex-row justify-center items-center lg:pl-4 lg:w-1/2">
-            <a
-              href="https://nextjs.org/docs/basic-features/pages"
-              className="mx-3 bg-black hover:bg-white hover:text-black border border-black text-white font-bold py-3 px-12 lg:px-8 duration-200 transition-colors mb-6 lg:mb-0"
-            >
-              Read Documentation
-            </a>
-            <a
-              href={`https://github.com/vercel/next.js/tree/canary/examples/${EXAMPLE_PATH}`}
-              className="mx-3 font-bold hover:underline"
-            >
-              View on GitHub
-            </a>
-          </div>
-        </div>
+        <div className="py-28 flex flex-row lg:flex-col items-center">
+    <div className="flex flex-row lg:flex-row justify-around items-around lg:pl-2 lg:w-1/3">
+      <div className="h-16 w-16 transition duration-500 ease-in-out hover:bg-black  rounded-full text-sm flex justify-center items-center "><a target="_blank"  href="https://angel.co/humaidk2"><FontAwesomeIcon className="h-8 w-8" icon={faAngellist}/></a></div>
+     <div className="h-16 w-16 transition duration-500 ease-in-out hover:bg-black  rounded-full text-sm flex justify-center items-center "><a target="_blank"  href="https://github.com/humaidk2"><FontAwesomeIcon className="h-8 w-8" icon={faGithub}/></a></div>
+     <div className="h-16 w-16 transition duration-500 ease-in-out hover:bg-black rounded-full text-sm flex justify-center items-center "><a target="_blank"  href="https://linkedin.com/in/humaidk2"><FontAwesomeIcon className="h-8 w-8" icon={faLinkedin}/></a></div>
+     <div className="h-16 w-16 transition duration-500 ease-in-out hover:bg-black rounded-full text-sm flex justify-center items-center "><a target="_blank"  href="mailto:humaidk2@gmail.com"><FontAwesomeIcon className="h-8 w-8" icon={faEnvelope}/></a></div>
+     <div className="h-16 w-16 transition duration-500 ease-in-out hover:bg-black  rounded-full text-sm flex justify-center items-center "><a target="_blank" className="icon-link fa-stack fa-lg" href="https://humaidkhan.com"><img className="h-12 w-8" src="/assets/logo9.png" /></a></div>
+    </div>
+  </div>
       </Container>
     </footer>
   )
