@@ -381,13 +381,141 @@ And it'll give you small cheat sheet of the common ways to use a program.
 
 # Scripting
 
-Now that you know some commands, what if you want to run a bunch of them together.
-This is where script files come in.
+Now that you know some commands, what if you want to run a bunch of them together to perform a certain task. Rather than repeat the same commands over and over again, we use a script file.
 
 ## Creating a script file
 
+Create a new file:
+
+```
+echo #!/bin/bash > test.sh
+echo "echo Hello World" >> test.sh
+```
+
+Here I've used redirection to create a new file called test.sh and set the first line to be #!/bin/bash.
+I've also appended the command "echo hello world" in the script file. So when we run the script file, it will print hello world in the terminal.
+
+Note the .sh extension implies that it's a shell script file.
+
 ## Permissions
+
+To run this file, you simply need to type in the absolute or relative path to the file, i.e:
+
+```
+/Users/humaidkhan/Desktop/test.sh
+```
+
+or if you're in the desktop directory:
+
+```
+./test.sh
+```
+
+If you try to run this file right now, it won't work cause by default, for security concerns, the os doesn't give you execute permissions on new files.
+
+```
+ls -la test.sh
+```
+
+You can see that you have 'r'(read) permissions but not 'x'(execute) permissions.
+
+To change permissions, we use the chmod command, since we want to add execute permissions for the current user, we can use it as follows:
+
+```
+chmod u+x test.sh
+```
+
+Now if you check the permissions, you can see the 'x':
+
+```
+ls -la test.sh
+```
+
+and run the script:
+
+```
+./test.sh
+```
+
+![ script commands](/assets/blog/terminal/images/script.png)
+
+Now you're setup to running and understanding script files.
 
 ## bashrc/zshrc
 
-## Aliasing
+bash is the default shell that runs by default on linux/mac machines. You can replace with zsh, which is more modern and has support for many plugins and can be configured for autocompletions for many commands.
+
+You can configure your shell using rc files, as in configuration files. By default, these are in the root directory of your computer and run when you start the shell.
+
+```
+cd
+cat .zshrc
+```
+
+One of the cool ways you can configure it is adding aliases for any command or group of commands.
+
+For zshrc files, this would be like so:
+
+```
+g = git
+gs = g status
+listAll = ls -la
+fileCount = 'ls | wc -l'
+```
+
+We can also read the arguments passed to the function, using the $ operator, where $1 is the first argument, $2 is the second,etc... For a group of commands, functions, this would be as follows:
+
+```
+helloWorld() {
+  echo hello
+  echo world
+  echo !!!!!
+  echo $1
+}
+```
+
+Then we can run the command as follows:
+
+```
+helloWorld wow
+```
+
+It's very similar in the bashrc files, functions are exactly the same and aliases are like this:
+
+```
+alias fileCount = 'ls | wc -l'
+```
+
+and functions are the exact same way as zshrc.
+
+## crontab
+
+Cron tabs allow you to run tasks recurringly, every few minutes or every day or every hour.
+
+To setup cron jobs, you need to modify the crontab file, run:
+
+```
+crontab -e
+```
+
+Modify the file, and add the recurring task to be performed,
+
+I highly recommend you use cheat crontab, to look at the format of the command:
+
+```
+*/10 * * * * * echo hello
+```
+
+This will run test.sh every minute
+
+# Conclusion
+
+That's all the basics of getting started with shell scripting
+
+Shell scripting is a pretty nifty tool to solving lots of issues on the fly. You can setup a bunch of aliases and have a nice toolkit to save you a lot of time.
+
+I recommend getting some practice in using shell and docker. It would be actually cool to keep some cron jobs in a docker container to keep your shell scripts secure and easy to start/stop
+Also, If you're a beginner, I really recommend you use the cheat command to get a small cheat sheet.
+
+This article took me longer than expected, I get busy pretty easily, but it was def worth it, I referenced it a bit while working on it. Hope you enjoyed it.
+
