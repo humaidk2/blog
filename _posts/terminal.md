@@ -1,6 +1,6 @@
 ---
 title: "The Terminal"
-date: "2020-11-13"
+date: "2022-07-31"
 excerpt: "The terminal is one of those tools that I use everyday, so learning a bit more about and spending some time configuring it can lead to a huge amount of time saved in the long run."
 coverImage: "/assets/blog/terminal/cover.jpg"
 author:
@@ -518,4 +518,3 @@ I recommend getting some practice in using shell and docker. It would be actuall
 Also, If you're a beginner, I really recommend you use the cheat command to get a small cheat sheet.
 
 This article took me longer than expected, I get busy pretty easily, but it was def worth it, I referenced it a bit while working on it. Hope you enjoyed it.
-
